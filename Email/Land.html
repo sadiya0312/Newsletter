@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="ISO-8859-1">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>
+  <link type="text/css" href="css/bootstrap-timepicker.min.css" />
+  <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css"/>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> 
+<script type="text/javascript" src="assets/bootstrap/js/bootstrap.js"></script> 
+<script type="text/javascript" src="assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script> 
+<link href="../css/bootstrap-timepicker.min.css" rel="stylesheet"/> 
+<script src="../js/bootstrap-timepicker.js"></script> 
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css"/>
+<link rel="stylesheet" href="image.css"/>
+
+<link rel="stylesheet" href="http://jqueryvalidation.org/files/demo/site-demos.css"/>
+
+<script LANGUAGE="JavaScript">
+  function getParams(){
+  var idx = document.URL.indexOf('?');
+  var params = new Array();
+  if (idx != -1) {
+    var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+  for (var i=0; i<pairs.length; i++){
+    nameVal = pairs[i].split('=');
+    params[nameVal[0]] = nameVal[1];
+    }
+  }
+  return params;
+ }
+
+
+params = getParams();
+name1 = unescape(params["name"]);
+Phone_number1 = unescape(params["Phone_number"]);
+Email1 = unescape(params["Email"]);
+opt1 = unescape(params["opt"]);
+time1 = unescape(params["day_clock"])
+//document.write("Name = " + name + "<br>");
+//document.write("Phone Number = " + Phone_number + "<br>");
+//document.write("Email = " + Email + "<br>");
+//document.write("opt = " + opt + "<br>");
+//document.write("Contact time = " + time + "<br>");
+
+</script>
+
+
+ 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"/>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+
+<style>
+.imgA1 { position:absolute; top: 50px; left: 240px; z-index: 2; width:200px; height:190px; opacity:0.1} 
+.imgB1 { position:absolute; top: 50px; left: 240px; z-index: 0; width:70%; height:190px} 
+.head {position:absolute; z-index:3; top:25px; left: 270px}
+
+/* Set black background color, white text and some padding */
+    footer {
+      background-color: #004b8e;
+      color: white;
+      padding: 15px;
+    }
+/* Remove the jumbotron's default bottom margin */ 
+    .jumbotron {
+      margin-bottom: 0;
+    }  
+</style>  
+<title>landing Page</title>
+
+</head>
+
+<body>
+
+
+
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+<script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+
+<script type="text/javascript">
+function validation(){
+	validate();
+	validatemail();
+	validatephone();
+	validateselect();
+	//if (name=="")
+	//	{
+	//	document.getElementById('message').style.display = "hidden";
+	//	}
+}
+ function validate() {
+  if(myForm.Name.value.length==0)
+  {
+document.getElementById('err').innerHTML="Please Enter Your Name";
+  }
+  if(myForm.Name.value.length>0)
+  {
+document.getElementById('err').innerHTML=" ";
+document.getElementById('err').style.display = "hidden";
+  }
+ }
+ function validatemail(){
+	 
+	 var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	  if(myForm.Email.value.length==0)
+	  {
+		  document.getElementById('errmail2').innerHTML=" ";
+		  document.getElementById('errmail2').style.display = "hidden";
+	document.getElementById('errmail').innerHTML="Please Enter Your Email";
+	  }
+	  if (!filter.test(myForm.Email.value) && myForm.Email.value.length>0 ) {
+		  document.getElementById('errmail').innerHTML=" ";
+		  document.getElementById('errmail').style.display = "hidden";
+    document.getElementById('errmail2').innerHTML="Please Enter Valid Email";  
+	  }
+	  if (!filter.test(myForm.Email.value)&& (myForm.Email.value.length>0) ) {
+		  document.getElementById('errmail').innerHTML=" ";
+		  document.getElementById('errmail').style.display = "hidden";
+		  document.getElementById('errmail2').innerHTML=" ";
+		  document.getElementById('errmail2').style.display = "hidden";
+	  }
+ }
+ function validatephone() {
+	 
+	 var filterphone = /^(\([0-9]{3}\)|[0-9]{3}-)[0-9]{3}-[0-9]{4}$/;
+	  if(myForm.Phone_Number.value.length==0)
+	  {
+	document.getElementById('errphone').innerHTML="Please Enter Phone Number ";
+	  }
+	  if (!filterphone.test(myForm.Phone_Number.value) && myForm.Phone_number.value.length>0 ) {
+		  document.getElementById('errphone').innerHTML=" ";
+		  document.getElementById('errmail').style.display = "hidden";
+    document.getElementById('errphone').innerHTML="Please Enter Valid Phone Number in formate 222-222-2222";  
+	  }
+	  if(filter.test(myForm.Phone_Number.value) && myForm.Phone_Number.value.length>0)
+	  {
+	document.getElementById('errphone').innerHTML=" ";
+	document.getElementById('errphone').style.display = "hidden";
+	  }
+	 }
+ function validateselect()
+ {
+	 el = document.getElementById('opt');
+
+	 if( el.options[el.selectedIndex].defaultSelected){
+		 document.getElementById('erropt').innerHTML=" ";
+		 document.getElementById('erropt').style.display = "hidden";
+	     
+	 }
+ }
+ 
+</script>
+
+<script>
+
+
+// just for the demos, avoids form submit
+
+
+jQuery.validator.setDefaults({
+
+
+  debug: true,
+
+
+  success: "valid"
+
+
+});
+
+
+$( "#myForm" ).validate({
+
+
+  rules: {
+
+
+    name: {
+
+
+      required: true
+
+
+    },
+    Email: {
+    	required: true
+    },
+    
+    Phone_number:{
+    	required: true
+    },
+    opt: {
+
+
+        required: true
+
+
+      },
+    day_clock: {
+
+
+        required: true
+
+
+      }
+
+  }
+
+
+});
+
+</script>
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+   <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="Email.html">Email</a>
+    </div>
+  </div>
+</nav>   
+
+
+<div class="jumbotron">
+  <div class="container text-center">
+   <table><tr><td>
+  <h1 class=head align="center"> Campaign Website</h1>
+ </td></tr>
+  <tr>
+  <td>
+  <img class=imgA1 src="pearl.png" alt="logo.png" />
+  <img class=imgB1 src="shutterstock_33358642.jpg" alt="" />
+  
+  </td>
+  <td>&nbsp;</td>
+  </tr>
+    </table>
+   <br><br><br><br><br><br> 
+    <div>
+   <table>
+   
+   <tr><td colspan="3">
+    <h2>PA LPL LANDING PAGE</h2> <br>
+  </td></tr>
+  
+  <tr><td>
+    <p style="text-align:justify;font-family:verdana;font-size:120%">
+   
+
+Lawyers Professional Liability Insurance through Pearl Insurance and Swiss Re Corporate Solutions, with products underwritten by Westport Insurance Corporation, is your answer for all-inclusive, affordable coverage from partners who are committed to understanding your firm’s specific needs. 
+ 
+Swiss Re Corporate Solutions has been working to protect attorneys just like you for more than forty (40) years. Pearl Insurance has been providing professional liability insurance solutions to lawyers for nearly sixty (60) years. Work with the experienced team that’s committed to you and enjoy broad professional liability insurance coverage. 
+
+Why You Should Partner With Pearl Insurance and Swiss Re Corporate Solutions 
+
+New and improved rate filings for every full-time attorney practicing at a firm of nineteen (19) attorneys or fewer are designed to offer significant premium reductions
+Affordable options for lawyers who work part-time or need coverage options outside their main employment
+A+ financial ratings provide superior security 
+Broad professional liability coverage, including continuity of coverage and true consent to settle
+Swiss Re Corporate Solutions’ claims team of primarily attorneys averages nineteen (19) years of industry experience and an accumulation of fifty-two (52) years of Pennsylvania claims experience, providing decades of knowledge with the laws, rules, judges, opposing counsel, expert witnesses, and mediators in Pennsylvania
+Our free risk management is unmatched. For example, we provide three (3) hours of free on-demand CLE approved webinars to every covered attorney
+Program Features Include
+Maximum Limits capacity of $15M each claim/$15M aggregate
+Deductible options ranging from $500 (part-time policy) to $1M
+Automated renewal for qualifying firms of 1-10 attorneys
+Up to 7.5% Association of Legal Administrators credit
+No consent-to-settle clause (no hammer clause)
+No requirement to report potential claims
+Continuous coverage giving you broader protection for unknown claims that may surface 
+Breach of Data Coverage
+Pre-claim Coverage
+Subpoena Coverage
+Crisis Event Coverage
+Innocent Insured Coverage
+Title Agent Coverage in policy form
+Free Risk Management Webinars 
+And more!
+About Swiss Re Corporate Solutions
+
+A+ rated by A.M. Best 
+More than forty (40) years of experience in the Lawyers Professional Liability market
+Experienced claims team, most of whom are attorneys 
+Underwriting professionals help law firms identify, manage, and mitigate risks and exposures, as well as develop solutions to protect assets and reputations
+
+</p>
+</td>
+<td width="30px"></td>
+<td style="vertical-align: top">
+<p style="text-align:justify;font-family:verdana;font-size:90%">
+
+<b>Request More Information Online</b><br><br>
+
+Choose the button below that applies to you and receive more information on Pearl Insurance’s Lawyers Professional Liability Insurance Program.
+ 
+I am a current Swiss Re Corporate Solutions policyholder. <br><button type="submit" style="background-color:#c2c2a3;display: block; margin: 0 auto; align:center;">Swiss Policy Controller</button><br>
+ 
+I am not a Swiss Re Corporate Solutions policyholder. <br><button type="submit" style="background-color:#c2c2a3;display: block; margin: 0 auto; align:center;">Not a Swiss Policy Controller</button>
+Get a Premium Estimate<br><button type="submit" style="background-color:#c2c2a3;display: block; margin: 0 auto; align:center;">Get a premier Estimate</button>
+Pennsylvania Lawyers Professional Liability Insurance Flyer <button type="submit" class="btn btn-link" style="display: block; margin: 0 auto; align:center;">
+liability Insurance Flyer</button>
+ 
+Pennsylvania Lawyers Professional Liability Insurance Frequently Asked Questions <button type="submit" class="btn btn-link" style="display: block; margin: 0 auto; align:center;">
+liability Insurance frequently asked questions</button><br>
+Email<br>
+For more information, email one of our Pearl Insurance Lawyers Professional Liability Specialists, at:<br>
+PAlawyers@pearlinsurance.com <br>
+Phone<br>
+To speak with a Pearl Insurance Lawyers Professional Liability Specialist, call:<br>
+800.845.8941
+</td>
+</tr>
+</table>
+
+    <div class="container">
+    <div id="message">
+    <script type="text/javascript" class="form-group">
+    document.getElementById('message').innerHTML="Your email will be send with following information"+"<br>Name = " + name + "<br>"+"Phone Number = " + Phone_number + "<br>"+"Email = " + Email + "<br>"+"opt = " + opt + "<br>"+"Contact time = " + time + "<br>"; 
+    </script>
+    
+    </div>  
+    
+    
+  <h2 align="center">Lead Generation</h2><br>
+  
+  
+  <form class="Lead-Generation" role="form" method="Get" name="myForm" id="myForm" action="Land.html" action="mail_handler.php" >
+   
+   
+  
+  
+    <div class="form-group" >
+      <label class="control-label col-sm-2" for="name">Name:</label>
+      <div class="col-sm-10">
+        <input type="text" name="name" class="form-control" id="Name" placeholder="Full Name" data-validation="required" onblur="validate()"></input>
+    
+      <div id="err">
+      
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group" >
+      <label class="control-label col-sm-2" for="Phone_number">Phone Number:</label>
+      <div class="col-sm-10">          
+        <input type="tel" onblur="validatephone()"  maxlength="12" name="Phone_number" class="form-control" id="Phone_Number" placeholder="Phone Number" data-validation="required"></input>
+     
+      <div id="errphone">
+      
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="Email" >Email:</label>
+      <div class="col-sm-10">          
+        <input type="Email" name="Email" class="form-control" id="Email" placeholder="Email" data-validation="required" onblur="validatemail()"></input>
+       
+        <div id="errmail">
+      
+      </div>
+      <div id="errmail2">
+      
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="form-group">      
+    <label class="control-label col-sm-2" for="Product_Interest" >Product Interest:</label>
+      <div class="col-sm-10">     
+          <select class="col-sm-12" id="opt" name="opt" title="Please select" onblur="validateselect()">
+          <option value="BOP">Please select</option>
+  		 <option value="BOP">Business Owners Policy</option>
+  		 <option value="EOI">Error and Omission Insurance</option>
+ 		 <option value="UEO">Understanding Error and Omission</option>
+</select>
+
+<div id="erropt">
+
+</div>
+     </div>  
+    </div>
+    <br>  
+    <div class="form-group" >
+      <label class="control-label col-sm-2" for="day_clock">Day/Time to Contact:</label>
+      <div class="col-sm-10">
+      
+   <div id="datetimepicker" class="input-append date">
+      <input type="text" class="form-control" id="day_clock" name="day_clock" placeholder="Select right time to contact"/>
+      <span class="add-on">
+        <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+      </span>
+    </div>
+   
+    <script type="text/javascript"
+     src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
+    </script> 
+    <script type="text/javascript"
+     src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript"
+     src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    </script>
+    <script type="text/javascript">
+      $('#datetimepicker').datetimepicker({
+        format: 'dd/MM/yyyy hh:mm:ss',
+        language: 'pt-BR'
+      });
+    </script>        
+     <div id="date_time">
+     
+     </div>
+      </div>
+    </div>
+    
+    <br>
+       
+         <div class="col-sm-offset-2 col-sm-10 col-lg-offset-0 col-lg-12" align="center">
+         <!-- <input type="Submit" class="btn btn-success" name="Submit" id="Submit" value="Submit" ></input>-->
+         
+    <button type="submit" style="background-color:#c2c2a3;display: block; margin: 0 auto; align:center;" onclick="validation()">Submit Information</button>
+     <br>    </div>        
+    
+  </form>
+  
+  
+  <form name = "myForm" action="mail_handler.php" method="post">
+  <div class="col-sm-offset-2 col-sm-10 col-lg-offset-0 col-lg-12" align="center">
+<button type="submit"  style="background-color:#c2c2a3;display: block; margin: 0 auto; align:center;">Send Email</button>
+</div> 
+<input type="hidden" id="name"  name="name" >
+<input type="hidden" id="Phone_number"  name="Phone_number">
+<input type="hidden" id="Email"  name="email">
+<input type="hidden" id="opt"  name="opt">
+<input type="hidden" id="day_clock"  name="day_clock">
+
+<script type="text/javascript">
+var elem = document.getElementById("name");
+elem.value = name;
+var elem = document.getElementById("Phone_number");
+elem.value = Phone_number;
+var elem = document.getElementById("Email");
+elem.value = Email;
+var elem = document.getElementById("opt");
+elem.value = opt;
+var elem = document.getElementById("day_clock");
+elem.value = day_clock;
+</script>
+
+
+</form>
+
+  </div>
+ </div>
+ </div>
+</div>
+</body>
+</html> 

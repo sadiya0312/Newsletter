@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form submission</title>
+<meta charset="ISO-8859-1">
+<script LANGUAGE="JavaScript">
+  function getParams(){
+  var idx = document.URL.indexOf('?');
+  var params = new Array();
+  if (idx != -1) {
+    var pairs = document.URL.substring(idx+1, document.URL.length).split('&');
+  for (var i=0; i<pairs.length; i++){
+    nameVal = pairs[i].split('=');
+    params[nameVal[0]] = nameVal[1];
+    }
+  }
+  return params;
+ }
+
+
+params = getParams();
+name = unescape(params["name"]);
+Phone_number = unescape(params["Phone_number"]);
+Email = unescape(params["Email"]);
+opt = unescape(params["opt"]);
+time = unescape(params["day_clock"])
+document.write("Name = " + name + "<br>");
+document.write("Phone Number = " + Phone_number + "<br>");
+document.write("Email = " + Email + "<br>");
+document.write("opt = " + opt + "<br>");
+document.write("Contact time = " + day_clock + "<br>");
+
+</script></head>
+<body>
+
+
+<form name = "myForm" action="mail_handler.php" method="Post">
+
+
+<input type="hidden" id="name"  name="name" >
+<input type="hidden" id="Phone_number"  name="Phone_number">
+<input type="hidden" id="Email"  name="email">
+<input type="hidden" id="opt"  name="opt">
+<input type="hidden" id="day_clock"  name="day_clock">
+
+<input type="submit" name="submit" value="submit">
+
+
+<script type="text/javascript">
+var elem = document.getElementById("name");
+elem.value = name;
+var elem = document.getElementById("Phone_number");
+elem.value = Phone_number;
+var elem = document.getElementById("Email");
+elem.value = Email;
+var elem = document.getElementById("opt");
+elem.value = opt;
+var elem = document.getElementById("day_clock");
+elem.value = day_clock;
+</script>
+
+
+</form>
+</body>
+</html>

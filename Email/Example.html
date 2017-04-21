@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+ <script type="text/javascript">
+ function validate() {
+  if(myform.fname.value.length==0)
+  {
+document.getElementById('errfn').innerHTML="this is invalid name";
+  }
+ }
+ </script>
+<form name="myform">
+  First_Name
+  <input type=text id=fname name=fname onblur="validate()"> </input><div id="errfn">   </div>
+
+<br> <br>
+Last_Name
+<input type=text id=lname name=lname onblur="validate()"> </input>
+
+<br>
+<input type=button value=check> 
+
+</form>
+
+</head>
+<body>
+
+</body>
+</html>
